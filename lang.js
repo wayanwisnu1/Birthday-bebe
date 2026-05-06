@@ -76,7 +76,7 @@ const translations = {
         copyToClipboard: "📋 Đã sao chép link vào clipboard!",
         copyFail: "❌ Không thể sao chép link!",
         nextButton: "Lanjut ❤️",
-        authTitle: "Komang Putri Jegeg",
+        authTitle: "Halo Bebe Jegeg",
         authDesc: "Pilih tanggal lahirmu geg",
         authPlaceholder: "Tanggal lahir...",
         authConfirm: "Buka Hadiah 🎁",

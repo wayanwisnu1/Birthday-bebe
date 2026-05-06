@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Birthday, Komang Putri 🎀</title>
+    <title>Happy Birthday, Sayangkuu 🎀</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap"
@@ -359,7 +359,8 @@
         opacity: 1;
       }
 
-      .slide-photo {
+      .slide-photo,
+      .slide-video {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -872,7 +873,7 @@
 
       <p class="badge">✦ &nbsp; Special Day &nbsp; ✦</p>
 
-      <h1 class="hero-title">Happy Birthday,<br /><em>Komang Putri</em></h1>
+      <h1 class="hero-title">Happy Birthday,<br /><em>Sayangku</em></h1>
 
       <p class="hero-sub">— dengan sepenuh cinta —</p>
 
@@ -898,6 +899,9 @@
 
     <!-- ===== SLIDESHOW ===== -->
     <section class="slideshow-section" id="slideshow">
+      <audio id="momenAudio" loop>
+        <source src="music/momen_music.mp3" type="audio/mpeg" />
+      </audio>
       <h2 class="sec-title light">Momen <em>Kita</em></h2>
       <p class="sec-desc light">
         ♡ &nbsp; kenangan yang selalu kuingat &nbsp; ♡
@@ -908,7 +912,7 @@
           <div class="slide-frame" id="slideFrame">
             <!-- SLIDE 1 -->
             <div class="slide active" id="slide-0">
-              <img src="image/photos/b1.png" class="slide-photo" />
+              <img src="image/photos/fotbar.jpg" class="slide-photo" />
               <div class="slide-caption">
                 <p class="caption-text">
                   "Saat pertama aku tahu, kamu adalah orangnya."
@@ -921,7 +925,13 @@
 
             <!-- SLIDE 2 -->
             <div class="slide" id="slide-1">
-              <img src="image/photos/b2.png" class="slide-photo" />
+              <video
+                src="video/momen.mp4"
+                class="slide-video"
+                loop
+                muted
+                playsinline
+              ></video>
               <div class="slide-caption">
                 <p class="caption-text">
                   "Setiap momen bersamamu selalu terasa sempurna."
@@ -934,7 +944,13 @@
 
             <!-- SLIDE 3 -->
             <div class="slide" id="slide-2">
-              <img src="image/photos/b12.png" class="slide-photo" />
+              <video
+                src="video/momen2.mp4"
+                class="slide-video"
+                loop
+                muted
+                playsinline
+              ></video>
               <div class="slide-caption">
                 <p class="caption-text">
                   "Dunia terasa lebih indah kalau dijelajahi bersamamu."
@@ -947,7 +963,13 @@
 
             <!-- SLIDE 4 -->
             <div class="slide" id="slide-3">
-              <img src="image/photos/b4.png" class="slide-photo" />
+              <video
+                src="video/momen3.mp4"
+                class="slide-video"
+                loop
+                muted
+                playsinline
+              ></video>
               <div class="slide-caption">
                 <p class="caption-text">
                   "Senyummu adalah hal terindah yang pernah kulihat."
@@ -963,7 +985,7 @@
               <img src="image/photos/jegeg.jpg" class="slide-photo" />
               <div class="slide-caption">
                 <p class="caption-text">
-                  "Happy Birthday, Komang Putri. Aku mencintaimu selamanya."
+                  "Happy Birthday, Sayangku Jegeg. Aku mencintaimu selamanya."
                 </p>
                 <p class="caption-sub">♡ untuk selamanya ♡</p>
               </div>
@@ -1006,54 +1028,85 @@
       <div class="photo-grid">
         <!-- Row 1 -->
         <div class="photo-card big">
-          <img src="image/photos/b1.png" style="width:100%;height:100%;object-fit:cover;" />
+          <img
+            src="image/photos/jegeg.jpg"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
           <div class="photo-overlay">Momen pertama kita 💕</div>
         </div>
         <div class="photo-card">
-          <img src="image/photos/b2.png" style="width:100%;height:100%;object-fit:cover;" />
+          <img
+            src="image/photos/b2.png"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
           <div class="photo-overlay">Selalu bahagia bersamamu</div>
         </div>
 
         <!-- Row 2 -->
         <div class="photo-card">
-          <img src="image/photos/b3.png" style="width:100%;height:100%;object-fit:cover;" />
+          <img
+            src="image/photos/b3.png"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
           <div class="photo-overlay">Kenangan tak terlupakan</div>
         </div>
         <div class="photo-card big">
-          <img src="image/photos/b7.png" style="width:100%;height:100%;object-fit:cover;" />
+          <img
+            src="image/photos/b7.png"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
           <div class="photo-overlay">Bersamamu, segalanya jadi indah 🌸</div>
         </div>
 
         <!-- Row 3 -->
         <div class="photo-card">
-          <img src="image/photos/b4.png" style="width:100%;height:100%;object-fit:cover;" />
+          <img
+            src="image/photos/b4.png"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
           <div class="photo-overlay">Setiap saat bersamamu spesial</div>
         </div>
         <div class="photo-card">
-          <img src="image/photos/b6.png" style="width:100%;height:100%;object-fit:cover;" />
+          <img
+            src="image/photos/b6.png"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
           <div class="photo-overlay">Tawa yang selalu kurindukan ✨</div>
         </div>
         <div class="photo-card">
-          <img src="image/photos/b8.png" style="width:100%;height:100%;object-fit:cover;" />
+          <img
+            src="image/photos/b8.png"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
           <div class="photo-overlay">Momen manis kita berdua 💖</div>
         </div>
 
         <!-- Row 4 -->
         <div class="photo-card big">
-          <img src="image/photos/b5.png" style="width:100%;height:100%;object-fit:cover;" />
+          <img
+            src="image/photos/b5.png"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
           <div class="photo-overlay">Kamu senyumku setiap hari ❤️</div>
         </div>
         <div class="photo-card">
-          <img src="image/photos/b9.png" style="width:100%;height:100%;object-fit:cover;" />
+          <img
+            src="image/photos/b9.png"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
           <div class="photo-overlay">Cinta dalam setiap jepretan 📸</div>
         </div>
 
         <!-- Row 5 -->
         <div class="photo-card big">
-          <img src="image/photos/b10.png" style="width:100%;height:100%;object-fit:cover;" />
+          <img
+            src="image/photos/b10.png"
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
           <div class="photo-overlay">Terima kasih sudah ada untukku 💝</div>
         </div>
-      </div>    </section>
+      </div>
+    </section>
 
     <!-- ===== MESSAGE ===== -->
     <section class="message-section" id="pesan">
@@ -1241,9 +1294,22 @@
       }
 
       function goTo(n) {
-        document.getElementById("slide-" + current).classList.remove("active");
+        const prevSlide = document.getElementById("slide-" + current);
+        const prevVid = prevSlide.querySelector("video");
+        if (prevVid) prevVid.pause();
+
+        prevSlide.classList.remove("active");
         current = ((n % TOTAL) + TOTAL) % TOTAL;
-        document.getElementById("slide-" + current).classList.add("active");
+
+        const nextSlide = document.getElementById("slide-" + current);
+        nextSlide.classList.add("active");
+
+        const nextVid = nextSlide.querySelector("video");
+        if (nextVid) {
+          nextVid.currentTime = 0;
+          nextVid.play().catch(() => {});
+        }
+
         updateDots();
         startProgress();
       }
@@ -1276,13 +1342,18 @@
       function togglePlay() {
         isPlaying = !isPlaying;
         const btn = document.getElementById("playPauseBtn");
+        const currentSlide = document.getElementById("slide-" + current);
+        const currentVid = currentSlide.querySelector("video");
+
         if (isPlaying) {
           btn.textContent = "⏸ Pause";
           btn.classList.remove("paused");
+          if (currentVid) currentVid.play().catch(() => {});
           restartTimer();
         } else {
           btn.textContent = "▶ Play";
           btn.classList.add("paused");
+          if (currentVid) currentVid.pause();
           clearInterval(autoTimer);
           const fill = document.getElementById("progressFill");
           fill.style.transition = "none";
@@ -1316,6 +1387,40 @@
       document
         .querySelectorAll(".wish-card")
         .forEach((el) => observer.observe(el));
+
+      // ---- MOMEN AUDIO SCROLL CONTROL ----
+      const momenAudio = document.getElementById("momenAudio");
+      const slideshowSection = document.getElementById("slideshow");
+      let isSlideshowVisible = false;
+
+      const audioObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            isSlideshowVisible = entry.isIntersecting;
+            if (isSlideshowVisible) {
+              momenAudio.play().catch(() => {
+                console.log("Autoplay blocked, waiting for interaction.");
+              });
+            } else {
+              momenAudio.pause();
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      audioObserver.observe(slideshowSection);
+
+      // Trigger play on first interaction if visible
+      document.addEventListener(
+        "click",
+        () => {
+          if (isSlideshowVisible && momenAudio.paused) {
+            momenAudio.play().catch(() => {});
+          }
+        },
+        { once: false },
+      );
     </script>
   </body>
 </html>
