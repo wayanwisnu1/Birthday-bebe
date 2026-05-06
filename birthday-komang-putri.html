@@ -847,6 +847,80 @@
           right: -16px;
         }
       }
+
+      /* ===== MUSIC POPUP ===== */
+      .music-popup {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: none; /* Hidden by default */
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(26, 8, 16, 0.85);
+        backdrop-filter: blur(8px);
+      }
+
+      .music-popup.active {
+        display: flex;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .popup-card {
+        background: var(--pink-50);
+        border: 2px solid var(--pink-200);
+        border-radius: 28px;
+        padding: 40px 32px;
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        position: relative;
+      }
+
+      .popup-emoji {
+        font-size: 48px;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .popup-text {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 18px;
+        color: var(--pink-900);
+        line-height: 1.6;
+        margin-bottom: 28px;
+      }
+
+      .popup-btn {
+        background: var(--pink-500);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 14px 40px;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+      }
+
+      .popup-btn:hover {
+        background: var(--pink-600);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(233, 30, 99, 0.4);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
     </style>
   </head>
   <body>
@@ -920,7 +994,7 @@
                 <p class="caption-sub">♡ awal dari segalanya ♡</p>
               </div>
               <span class="slide-heart">♥</span>
-              <span class="slide-counter-badge" id="slideCounter">1 / 5</span>
+              <span class="slide-counter-badge" id="slideCounter">1 / 10</span>
             </div>
 
             <!-- SLIDE 2 -->
@@ -939,7 +1013,7 @@
                 <p class="caption-sub">♡ momen berharga ♡</p>
               </div>
               <span class="slide-heart">♥</span>
-              <span class="slide-counter-badge">2 / 5</span>
+              <span class="slide-counter-badge">2 / 10</span>
             </div>
 
             <!-- SLIDE 3 -->
@@ -958,7 +1032,7 @@
                 <p class="caption-sub">♡ petualangan kita ♡</p>
               </div>
               <span class="slide-heart">♥</span>
-              <span class="slide-counter-badge">3 / 5</span>
+              <span class="slide-counter-badge">3 / 10</span>
             </div>
 
             <!-- SLIDE 4 -->
@@ -977,7 +1051,7 @@
                 <p class="caption-sub">♡ kebahagiaanku ♡</p>
               </div>
               <span class="slide-heart">♥</span>
-              <span class="slide-counter-badge">4 / 5</span>
+              <span class="slide-counter-badge">4 / 10</span>
             </div>
 
             <!-- SLIDE 5 -->
@@ -990,7 +1064,90 @@
                 <p class="caption-sub">♡ untuk selamanya ♡</p>
               </div>
               <span class="slide-heart">♥</span>
-              <span class="slide-counter-badge">5 / 5</span>
+              <span class="slide-counter-badge">5 / 10</span>
+            </div>
+
+            <!-- SLIDE 6 -->
+            <div class="slide" id="slide-5">
+              <video
+                src="video/momen4.mp4"
+                class="slide-video"
+                loop
+                muted
+                playsinline
+              ></video>
+              <div class="slide-caption">
+                <p class="caption-text">
+                  "Setiap detik bersamamu adalah anugerah terindah."
+                </p>
+                <p class="caption-sub">♡ keajaiban cinta ♡</p>
+              </div>
+              <span class="slide-heart">♥</span>
+              <span class="slide-counter-badge">6 / 10</span>
+            </div>
+
+            <!-- SLIDE 7 -->
+            <div class="slide" id="slide-6">
+              <img src="image/photos/wisnu.jpg" class="slide-photo" />
+              <div class="slide-caption">
+                <p class="caption-text">
+                  "Kamu adalah rumah tempat hatiku selalu ingin pulang."
+                </p>
+                <p class="caption-sub">♡ tempat ternyaman ♡</p>
+              </div>
+              <span class="slide-heart">♥</span>
+              <span class="slide-counter-badge">7 / 10</span>
+            </div>
+
+            <!-- SLIDE 8 -->
+            <div class="slide" id="slide-7">
+              <video
+                src="video/momen5.mp4"
+                class="slide-video"
+                loop
+                muted
+                playsinline
+              ></video>
+              <div class="slide-caption">
+                <p class="caption-text">
+                  "Mencintaimu adalah keputusan terbaik dalam hidupku."
+                </p>
+                <p class="caption-sub">♡ pilihan hati ♡</p>
+              </div>
+              <span class="slide-heart">♥</span>
+              <span class="slide-counter-badge">8 / 10</span>
+            </div>
+
+            <!-- SLIDE 9 -->
+            <div class="slide" id="slide-8">
+              <img src="image/photos/b3.png" class="slide-photo" />
+              <div class="slide-caption">
+                <p class="caption-text">
+                  "Terima kasih telah mewarnai hari-hariku dengan cintamu."
+                </p>
+                <p class="caption-sub">♡ warna hidupku ♡</p>
+              </div>
+              <span class="slide-heart">♥</span>
+              <span class="slide-counter-badge">9 / 10</span>
+            </div>
+
+            <!-- SLIDE 10 -->
+            <div class="slide" id="slide-9">
+              <video
+                src="video/momen6.mp4"
+                class="slide-video"
+                loop
+                muted
+                playsinline
+              ></video>
+              <div class="slide-caption">
+                <p class="caption-text">
+                  "Selamanya kita akan terus bersama, menua dalam cinta."
+                </p>
+                <p class="caption-sub">♡ masa depan kita ♡</p>
+              </div>
+              <span class="slide-heart">♥</span>
+              <span class="slide-counter-badge">10 / 10</span>
             </div>
           </div>
 
@@ -1173,6 +1330,17 @@
       <div class="footer-hearts">♥ ♡ ♥</div>
     </footer>
 
+    <!-- ===== MUSIC POPUP ===== -->
+    <div class="music-popup" id="musicPopup">
+      <div class="popup-card">
+        <span class="popup-emoji">🎬 🎀</span>
+        <p class="popup-text">
+          "stop disini dulu flashback dulu ke momen video kita berdua ya hehe"
+        </p>
+        <button class="popup-btn" onclick="closePopupAndPlay()">Oke ♡</button>
+      </div>
+    </div>
+
     <!-- ===== SCRIPTS ===== -->
     <script>
       // ---- NAVBAR SCROLL ----
@@ -1273,7 +1441,7 @@
       })();
 
       // ---- SLIDESHOW ----
-      const TOTAL = 5;
+      const TOTAL = 10;
       const DURATION = 4500;
       let current = 0;
       let isPlaying = true;
@@ -1388,19 +1556,29 @@
         .querySelectorAll(".wish-card")
         .forEach((el) => observer.observe(el));
 
-      // ---- MOMEN AUDIO SCROLL CONTROL ----
+      // ---- MOMEN AUDIO & POPUP CONTROL ----
       const momenAudio = document.getElementById("momenAudio");
       const slideshowSection = document.getElementById("slideshow");
+      const musicPopup = document.getElementById("musicPopup");
       let isSlideshowVisible = false;
+      let hasShownPopup = false;
+
+      function closePopupAndPlay() {
+        musicPopup.classList.remove("active");
+        momenAudio.play().catch(() => {});
+      }
 
       const audioObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             isSlideshowVisible = entry.isIntersecting;
             if (isSlideshowVisible) {
-              momenAudio.play().catch(() => {
-                console.log("Autoplay blocked, waiting for interaction.");
-              });
+              if (!hasShownPopup) {
+                musicPopup.classList.add("active");
+                hasShownPopup = true;
+              } else {
+                momenAudio.play().catch(() => {});
+              }
             } else {
               momenAudio.pause();
             }
@@ -1410,17 +1588,6 @@
       );
 
       audioObserver.observe(slideshowSection);
-
-      // Trigger play on first interaction if visible
-      document.addEventListener(
-        "click",
-        () => {
-          if (isSlideshowVisible && momenAudio.paused) {
-            momenAudio.play().catch(() => {});
-          }
-        },
-        { once: false },
-      );
     </script>
   </body>
 </html>
