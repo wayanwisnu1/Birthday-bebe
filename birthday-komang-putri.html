@@ -540,63 +540,71 @@
 
       /* ===== GALLERY SECTION ===== */
       .gallery-section {
-        padding: 80px 24px;
+        padding: 80px 0;
         background: linear-gradient(180deg, var(--pink-50) 0%, #ffecf3 100%);
+        overflow: hidden;
       }
 
-      .photo-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        max-width: 720px;
-        margin: 0 auto;
+      .scroll-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+      }
+
+      .scroll-row {
+        display: flex;
+        gap: 20px;
+        width: max-content;
+      }
+
+      .scroll-row.to-left {
+        animation: scrollLeft 40s linear infinite;
+      }
+
+      .scroll-row.to-right {
+        animation: scrollRight 40s linear infinite;
+      }
+
+      .scroll-row:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes scrollLeft {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes scrollRight {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0);
+        }
       }
 
       .photo-card {
+        width: 250px;
         aspect-ratio: 1;
         border-radius: 18px;
         overflow: hidden;
         position: relative;
         cursor: pointer;
+        flex-shrink: 0;
         transition:
           transform 0.3s ease,
           box-shadow 0.3s ease;
       }
 
       .photo-card:hover {
-        transform: scale(1.04) rotate(-1deg);
+        transform: scale(1.05);
         box-shadow: 0 20px 50px rgba(180, 60, 100, 0.2);
-      }
-
-      .photo-card:nth-child(2):hover,
-      .photo-card:nth-child(4):hover {
-        transform: scale(1.04) rotate(1deg);
-      }
-
-      .photo-card.big {
-        grid-column: span 2;
-        aspect-ratio: 2/1;
-      }
-
-      .photo-card-inner {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #fce4ec, #f8bbd9, #fce4ec);
-        font-size: 36px;
-        position: relative;
-      }
-
-      .photo-card-inner span {
-        font-size: 11px;
-        color: var(--pink-700);
-        margin-top: 8px;
-        letter-spacing: 1px;
-        font-style: italic;
-        font-family: "Playfair Display", serif;
+        z-index: 10;
       }
 
       .photo-overlay {
@@ -830,6 +838,100 @@
         margin-bottom: 15px;
       }
 
+      .surprise-quiz {
+        margin-top: 20px;
+        padding: 15px;
+        background: var(--pink-50);
+        border-radius: 20px;
+        border: 1px dashed var(--pink-300);
+      }
+
+      .quiz-question {
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        color: var(--pink-900);
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      .quiz-btns {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        min-height: 50px;
+        position: relative;
+      }
+
+      .quiz-btn {
+        padding: 10px 24px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-family: "Lato", sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        transition: transform 0.2s;
+      }
+
+      .btn-yes {
+        background: var(--pink-500);
+        color: white;
+      }
+
+      .btn-yes:hover {
+        transform: scale(1.1);
+      }
+
+      .btn-no {
+        background: #eee;
+        color: #666;
+        z-index: 10;
+      }
+
+      .surprise-close {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px dashed var(--pink-200);
+      }
+
+      .quiz-question {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        color: var(--pink-900);
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      .quiz-btns {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        position: relative;
+        min-height: 50px;
+      }
+
+      .quiz-btn {
+        padding: 10px 25px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-family: "Lato", sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.2s ease;
+      }
+
+      .btn-yes {
+        background: var(--pink-500);
+        color: white;
+      }
+
+      .btn-no {
+        background: #eee;
+        color: #666;
+        position: relative;
+      }
+
       .surprise-close {
         position: absolute;
         top: -15px;
@@ -844,7 +946,7 @@
         justify-content: center;
         cursor: pointer;
         font-size: 20px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       }
 
       .surprise-heart {
@@ -861,7 +963,8 @@
           opacity: 1;
         }
         100% {
-          transform: translate(var(--tx), var(--ty)) scale(var(--s)) rotate(var(--r));
+          transform: translate(var(--tx), var(--ty)) scale(var(--s))
+            rotate(var(--r));
           opacity: 0;
         }
       }
@@ -929,23 +1032,68 @@
           padding: 14px 20px;
         }
         .nav-links {
-          gap: 16px;
+          gap: 12px;
         }
         .nav-links a {
-          font-size: 10px;
-          letter-spacing: 2px;
+          font-size: 9px;
+          letter-spacing: 1.5px;
         }
-        .photo-grid {
-          gap: 8px;
+        .hero-title {
+          font-size: clamp(38px, 12vw, 56px);
+        }
+        .hero-msg {
+          font-size: 14px;
+          padding: 0 10px;
+        }
+        .slide-frame {
+          aspect-ratio: 3/4; /* Better for vertical mobile screens */
+        }
+        .slide-caption {
+          padding: 40px 20px 20px;
+        }
+        .photo-card {
+          width: 180px;
         }
         .message-card {
-          padding: 36px 24px;
+          padding: 40px 24px;
+        }
+        .message-quote {
+          font-size: 18px;
         }
         .nav-prev {
-          left: -16px;
+          left: -10px;
+          width: 36px;
+          height: 36px;
         }
         .nav-next {
-          right: -16px;
+          right: -10px;
+          width: 36px;
+          height: 36px;
+        }
+        .surprise-card,
+        .popup-card,
+        .thank-you-card {
+          padding: 30px 20px;
+          border-radius: 20px;
+        }
+        .falling-card {
+          width: 100px;
+          height: 90px;
+          font-size: 9px;
+          padding: 15px 10px 25px;
+        }
+      }
+
+      /* iPhone 13 Specific & Similar Devices */
+      @media (max-width: 390px) {
+        .hero-title {
+          font-size: 42px;
+        }
+        .nav-links {
+          gap: 8px;
+        }
+        .nav-links a {
+          letter-spacing: 1px;
         }
       }
 
@@ -1021,6 +1169,99 @@
         to {
           opacity: 1;
         }
+      }
+
+      /* ===== THANK YOU POPUP ===== */
+      .thank-you-popup {
+        position: fixed;
+        inset: 0;
+        z-index: 10005;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(26, 8, 16, 0.85);
+        backdrop-filter: blur(8px);
+        padding: 20px;
+      }
+
+      .thank-you-popup.active {
+        display: flex;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .thank-you-card {
+        background: var(--pink-50);
+        border: 2px solid var(--pink-200);
+        border-radius: 28px;
+        padding: 40px 32px;
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        position: relative;
+        transform: scale(0.8);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .thank-you-popup.active .thank-you-card {
+        transform: scale(1);
+      }
+
+      /* ===== FALLING CARDS (HEART SHAPED) ===== */
+      .falling-card {
+        position: absolute;
+        width: 140px;
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" stroke="%23ffd6e7" stroke-width="0.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>')
+          no-repeat center center;
+        background-size: contain;
+        padding: 25px 20px 40px;
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 11px;
+        color: var(--pink-700);
+        pointer-events: none;
+        z-index: 5;
+        animation: fallDown linear forwards;
+        filter: drop-shadow(0 10px 20px rgba(180, 60, 100, 0.15));
+      }
+
+      @keyframes fallDown {
+        0% {
+          transform: translateY(-300px) rotate(var(--r1)) translateX(0);
+          opacity: 0;
+        }
+        5% {
+          opacity: 1;
+        }
+        25% {
+          transform: translateY(25vh) rotate(calc(var(--r1) + 15deg))
+            translateX(25px);
+        }
+        50% {
+          transform: translateY(50vh) rotate(calc(var(--r1) - 15deg))
+            translateX(-25px);
+        }
+        75% {
+          transform: translateY(75vh) rotate(calc(var(--r1) + 10deg))
+            translateX(20px);
+        }
+        95% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(120vh) rotate(var(--r2)) translateX(0);
+          opacity: 0;
+        }
+      }
+
+      .message-section {
+        position: relative;
+        overflow: hidden;
       }
     </style>
   </head>
@@ -1289,85 +1530,155 @@
         ♡ &nbsp; setiap gambar menyimpan cerita &nbsp; ♡
       </p>
 
-      <div class="photo-grid">
-        <!-- Row 1 -->
-        <div class="photo-card big">
-          <img
-            src="image/photos/jegeg.jpg"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-          <div class="photo-overlay">Momen pertama kita 💕</div>
-        </div>
-        <div class="photo-card">
-          <img
-            src="image/photos/b2.png"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-          <div class="photo-overlay">Selalu bahagia bersamamu</div>
+      <div class="scroll-container">
+        <!-- Row 1: To Left -->
+        <div class="scroll-row to-left">
+          <div class="photo-card">
+            <img
+              src="image/photos/jegeg.jpg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Momen pertama kita 💕</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b2.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Selalu bahagia bersamamu</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b3.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Kenangan tak terlupakan</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b7.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Bersamamu, segalanya jadi indah 🌸</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b4.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Setiap saat bersamamu spesial</div>
+          </div>
+          <!-- Duplicate for infinite effect -->
+          <div class="photo-card">
+            <img
+              src="image/photos/jegeg.jpg"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Momen pertama kita 💕</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b2.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Selalu bahagia bersamamu</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b3.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Kenangan tak terlupakan</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b7.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Bersamamu, segalanya jadi indah 🌸</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b4.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Setiap saat bersamamu spesial</div>
+          </div>
         </div>
 
-        <!-- Row 2 -->
-        <div class="photo-card">
-          <img
-            src="image/photos/b3.png"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-          <div class="photo-overlay">Kenangan tak terlupakan</div>
-        </div>
-        <div class="photo-card big">
-          <img
-            src="image/photos/b7.png"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-          <div class="photo-overlay">Bersamamu, segalanya jadi indah 🌸</div>
-        </div>
-
-        <!-- Row 3 -->
-        <div class="photo-card">
-          <img
-            src="image/photos/b4.png"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-          <div class="photo-overlay">Setiap saat bersamamu spesial</div>
-        </div>
-        <div class="photo-card">
-          <img
-            src="image/photos/b6.png"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-          <div class="photo-overlay">Tawa yang selalu kurindukan ✨</div>
-        </div>
-        <div class="photo-card">
-          <img
-            src="image/photos/b8.png"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-          <div class="photo-overlay">Momen manis kita berdua 💖</div>
-        </div>
-
-        <!-- Row 4 -->
-        <div class="photo-card big">
-          <img
-            src="image/photos/b5.png"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-          <div class="photo-overlay">Kamu senyumku setiap hari ❤️</div>
-        </div>
-        <div class="photo-card">
-          <img
-            src="image/photos/b9.png"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-          <div class="photo-overlay">Cinta dalam setiap jepretan 📸</div>
-        </div>
-
-        <!-- Row 5 -->
-        <div class="photo-card big">
-          <img
-            src="image/photos/b10.png"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-          <div class="photo-overlay">Terima kasih sudah ada untukku 💝</div>
+        <!-- Row 2: To Right -->
+        <div class="scroll-row to-right">
+          <div class="photo-card">
+            <img
+              src="image/photos/b6.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Tawa yang selalu kurindukan ✨</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b8.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Momen manis kita berdua 💖</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b5.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Kamu senyumku setiap hari ❤️</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b9.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Cinta dalam setiap jepretan 📸</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b10.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Terima kasih sudah ada untukku 💝</div>
+          </div>
+          <!-- Duplicate for infinite effect -->
+          <div class="photo-card">
+            <img
+              src="image/photos/b6.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Tawa yang selalu kurindukan ✨</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b8.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Momen manis kita berdua 💖</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b5.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Kamu senyumku setiap hari ❤️</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b9.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Cinta dalam setiap jepretan 📸</div>
+          </div>
+          <div class="photo-card">
+            <img
+              src="image/photos/b10.png"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div class="photo-overlay">Terima kasih sudah ada untukku 💝</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1423,6 +1734,20 @@
             satu sama lain selamanya.
           </p>
         </div>
+        <div class="wish-card">
+          <span class="wish-emoji">🤍</span>
+          <h3 class="wish-title">Teman Hidup</h3>
+          <p class="wish-desc">
+            Terima kasih sudah memilihku. Semoga aku bisa terus jadi alasan di balik setiap senyum bahagiamu.
+          </p>
+        </div>
+        <div class="wish-card">
+          <span class="wish-emoji">💌</span>
+          <h3 class="wish-title">Masa Depan</h3>
+          <p class="wish-desc">
+            Aku ingin melihat dunia bersamamu, melewati suka dan duka, hingga kita menua bersama nantinya.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -1431,7 +1756,9 @@
       <h2 class="footer-title">
         🎂 Happy Birthday,<br /><em>Komang Putri</em> 🎂
       </h2>
-      <button class="surprise-btn" onclick="triggerSurprise()">Surprize! 🎁</button>
+      <button class="surprise-btn" onclick="triggerSurprise()">
+        Surprize! 🎁
+      </button>
       <p class="footer-sub">
         ♡ &nbsp; I love you to the moon and back &nbsp; ♡
       </p>
@@ -1440,10 +1767,20 @@
 
     <!-- ===== SURPRIZE MODAL ===== -->
     <div class="surprise-modal" id="surpriseModal">
-      <div class="surprise-card">
+      <div class="surprise-card" id="surpriseCard">
         <div class="surprise-close" onclick="closeSurprise()">×</div>
-        <img src="image/photos/bagus.jpg" class="surprise-photo" alt="Surprise Photo" />
-        <p class="caption-text" style="color: var(--pink-900)">"I Love You So Much!" ❤️</p>
+        <img
+          src="image/photos/bagus.jpg"
+          class="surprise-photo"
+          alt="Surprise Photo"
+        />
+        <div class="surprise-quiz">
+          <p class="quiz-question">apakah cowo pada gambar tersebut ganteng?</p>
+          <div class="quiz-btns">
+            <button class="quiz-btn btn-yes" onclick="answerGanteng(true)">Iya</button>
+            <button class="quiz-btn btn-no" id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">Tidak</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1455,6 +1792,17 @@
           "stop disini dulu flashback dulu ke momen video kita berdua ya hehe"
         </p>
         <button class="popup-btn" onclick="closePopupAndPlay()">Oke ♡</button>
+      </div>
+    </div>
+
+    <!-- ===== THANK YOU POPUP ===== -->
+    <div class="thank-you-popup" id="thankYouPopup">
+      <div class="thank-you-card">
+        <span class="popup-emoji">💖 ✨</span>
+        <p class="popup-text">
+          "terimakasih jegeg ku aku emang ganteng"
+        </p>
+        <button class="popup-btn" onclick="closeThankYou()">Sama-sama ♡</button>
       </div>
     </div>
 
@@ -1706,11 +2054,60 @@
 
       audioObserver.observe(slideshowSection);
 
+      // ---- FALLING CARDS ----
+      const romanticMsgs = [
+        "I Love You ❤️",
+        "Happy Birthday Sayang 🎂",
+        "Kamu Segalanya Untukku 💖",
+        "Mencintaimu Selamanya ✨",
+        "Bahagia Terus Ya Sayang 🌸",
+        "Kamu Cantik Banget 🎀",
+        "Makasih Udah Ada 🤍",
+        "Jegeg Ku Sayang 💕",
+        "My Forever Love 💌",
+        "Terindah Dalam Hidupku 🌟",
+      ];
+
+      function createFallingCard() {
+        const section = document.getElementById("pesan");
+        if (!section) return;
+
+        const card = document.createElement("div");
+        card.className = "falling-card";
+        card.textContent =
+          romanticMsgs[Math.floor(Math.random() * romanticMsgs.length)];
+
+        const startX = Math.random() * (section.offsetWidth - 100);
+        card.style.left = startX + "px";
+        card.style.setProperty("--r1", (Math.random() - 0.5) * 40 + "deg");
+        card.style.setProperty("--r2", (Math.random() - 0.5) * 100 + "deg");
+
+        const duration = 8 + Math.random() * 4;
+        card.style.animationDuration = duration + "s";
+
+        section.appendChild(card);
+        setTimeout(() => card.remove(), duration * 1000);
+      }
+
+      setInterval(() => {
+        const section = document.getElementById("pesan");
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          createFallingCard();
+        }
+      }, 800);
+
       // ---- SURPRIZE CONTROL ----
       function triggerSurprise() {
         const modal = document.getElementById("surpriseModal");
         modal.classList.add("active");
-        
+
+        // Reset No button position just in case
+        const btn = document.getElementById("noBtn");
+        btn.style.position = "relative";
+        btn.style.left = "auto";
+        btn.style.top = "auto";
+
         // Create heart confetti
         const symbols = ["❤️", "💖", "💝", "💕", "💗", "🌸"];
         for (let i = 0; i < 40; i++) {
@@ -1718,33 +2115,65 @@
             const h = document.createElement("div");
             h.className = "surprise-heart";
             h.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-            
+
             const startX = window.innerWidth / 2;
             const startY = window.innerHeight / 2;
-            
+
             h.style.left = startX + "px";
             h.style.top = startY + "px";
-            
+
             const tx = (Math.random() - 0.5) * 1000 + "px";
             const ty = (Math.random() - 0.5) * 1000 + "px";
             const s = 0.5 + Math.random() * 1.5;
             const r = (Math.random() - 0.5) * 500 + "deg";
-            
+
             h.style.setProperty("--tx", tx);
             h.style.setProperty("--ty", ty);
             h.style.setProperty("--s", s);
             h.style.setProperty("--r", r);
-            
+
             document.body.appendChild(h);
-            
+
             // Remove after animation
             setTimeout(() => h.remove(), 3000);
           }, i * 50);
         }
       }
 
+      function moveNoButton() {
+        const btn = document.getElementById("noBtn");
+        btn.style.position = "fixed";
+
+        const maxX = window.innerWidth - btn.offsetWidth;
+        const maxY = window.innerHeight - btn.offsetHeight;
+
+        const newX = Math.random() * maxX;
+        const newY = Math.random() * maxY;
+
+        btn.style.left = newX + "px";
+        btn.style.top = newY + "px";
+        btn.style.zIndex = "10002";
+      }
+
+      function answerGanteng(isGanteng) {
+        if (isGanteng) {
+          closeSurprise();
+          setTimeout(() => {
+            document.getElementById("thankYouPopup").classList.add("active");
+          }, 300);
+        }
+      }
+
+      function closeThankYou() {
+        document.getElementById("thankYouPopup").classList.remove("active");
+      }
+
       function closeSurprise() {
         document.getElementById("surpriseModal").classList.remove("active");
+        const btn = document.getElementById("noBtn");
+        btn.style.position = "relative";
+        btn.style.left = "auto";
+        btn.style.top = "auto";
       }
     </script>
   </body>
